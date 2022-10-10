@@ -1,13 +1,14 @@
 import React from 'react'
 import Book from './Book'
 
-function BookShelf (props) {
+function BookShelf(props) {
+  const { title, shelfBooks, handleChange } = props
   return (
     <div className='bookshelf'>
-      <h2 className='bookshelf-title'>{props.title}</h2>
+      <h2 className='bookshelf-title'>{title}</h2>
       <div className='bookshelf-books'>
         <ol className='books-grid'>
-          {props.shelfBooks.map(book => (
+          {shelfBooks.map(book => (
             <li key={book.title}>
               <Book
                 author={book.authors}
@@ -18,7 +19,7 @@ function BookShelf (props) {
                 }
                 id={book.id}
                 shelf={book.shelf}
-                handleChange={props.handleChange}
+                handleChange={handleChange}
               />
             </li>
           ))}

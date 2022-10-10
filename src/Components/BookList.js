@@ -8,7 +8,9 @@ const BookList = props => {
     books.filter(b => {
       return b.shelf === shelf
     })
-  const getShelfBooks = filterBooks(Object.values(props.books))
+
+  const { handleChange, books } = props
+  const getShelfBooks = filterBooks(Object.values(books))
 
   return (
     <div className='list-books'>
@@ -21,7 +23,7 @@ const BookList = props => {
             shelf.display ? (
               <BookShelf
                 title={shelf.displayName}
-                handleChange={props.handleChange}
+                handleChange={handleChange}
                 key={shelf.name}
                 shelf_key={shelf.name}
                 shelfBooks={getShelfBooks(shelf.name)}
